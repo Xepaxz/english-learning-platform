@@ -80,7 +80,7 @@ export function Home() {
           <div className="flex animate-marquee whitespace-nowrap">
             {[...countryFlags, ...countryFlags, ...countryFlags, ...countryFlags].map((item, i) => (
               <div key={i} className="inline-flex items-center gap-3 mx-10">
-                <span className="text-4xl drop-shadow-sm" style={{ animation: `spin 4s linear infinite`, animationDelay: `${(i % countryFlags.length) * 0.5}s` }}>
+                <span className="text-4xl drop-shadow-sm">
                   {item.flag}
                 </span>
                 <span className="text-primary-foreground font-semibold text-lg tracking-wide">{item.name}</span>
