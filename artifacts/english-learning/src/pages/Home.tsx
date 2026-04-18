@@ -13,6 +13,30 @@ const testimonials = [
   { quote: "I've learned so much from you — not only about English, but also about confidence and communication.", author: "Nghi" }
 ];
 
+const englishTerms = [
+  "Conversational English",
+  "Grammar Mastery",
+  "IELTS Preparation",
+  "Pronunciation",
+  "Business English",
+  "Academic Writing",
+  "Vocabulary Building",
+  "Listening Skills",
+  "Speaking Fluency",
+  "Reading Comprehension",
+  "English for Life",
+  "Confident Communication",
+];
+
+const countryFlags = [
+  { flag: "🇻🇳", name: "Vietnam" },
+  { flag: "🇯🇵", name: "Japan" },
+  { flag: "🇰🇷", name: "Korea" },
+  { flag: "🇹🇼", name: "Taiwan" },
+  { flag: "🇵🇭", name: "Philippines" },
+  { flag: "🇺🇸", name: "English" },
+];
+
 export function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -50,22 +74,32 @@ export function Home() {
         </div>
       </section>
 
-      {/* Global Students Section */}
-      <section className="py-16 bg-card border-y border-border">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-sm font-semibold tracking-widest uppercase text-muted-foreground mb-8">
-            Welcoming students from around the world
-          </h3>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-xl md:text-2xl font-serif text-foreground/80">
-            <span>Vietnam</span>
-            <span className="text-primary/40">•</span>
-            <span>Japan</span>
-            <span className="text-primary/40">•</span>
-            <span>Korea</span>
-            <span className="text-primary/40">•</span>
-            <span>Taiwan</span>
-            <span className="text-primary/40">•</span>
-            <span>Philippines</span>
+      {/* Rotating Country Flags Strip */}
+      <section className="py-8 bg-primary overflow-hidden">
+        <div className="relative">
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[...countryFlags, ...countryFlags, ...countryFlags, ...countryFlags].map((item, i) => (
+              <div key={i} className="inline-flex items-center gap-3 mx-10">
+                <span className="text-4xl drop-shadow-sm" style={{ animation: `spin 4s linear infinite`, animationDelay: `${(i % countryFlags.length) * 0.5}s` }}>
+                  {item.flag}
+                </span>
+                <span className="text-primary-foreground font-semibold text-lg tracking-wide">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Scrolling English Terms Strip */}
+      <section className="py-6 bg-secondary/60 overflow-hidden border-y border-border">
+        <div className="relative">
+          <div className="flex animate-marquee-reverse whitespace-nowrap">
+            {[...englishTerms, ...englishTerms, ...englishTerms].map((term, i) => (
+              <div key={i} className="inline-flex items-center mx-8 gap-4">
+                <span className="w-2 h-2 rounded-full bg-primary/50 flex-shrink-0"></span>
+                <span className="text-foreground/70 font-semibold text-base uppercase tracking-widest">{term}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
