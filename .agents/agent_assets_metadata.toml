@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "KcjyfzQ2alAkGewSzm5Tm"
+uri = "file://artifacts/english-learning/public/hero-image.png"
+type = "image"
+title = "Bright classroom teacher students"
+
+[[generated]]
+id = "1Y9KL3xUynBud9J4wlU67"
+uri = "file://artifacts/english-learning/public/teacher-avatar.png"
+type = "image"
+title = "Teacher Polen portrait"
+
+[[generated]]
+id = "UkZgXwtVG1n7t4M2BYXir"
+uri = "file://artifacts/english-learning/public/students-group.png"
+type = "image"
+title = "Students studying together"

@@ -24,4 +24,13 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
+## Artifacts
+
+### english-learning (Teacher Polen - English Learning Platform)
+- **Type**: react-vite
+- **Preview path**: /
+- **Directory**: artifacts/english-learning
+- **Description**: Full English learning platform website for Teacher Polen. Includes Home, Courses, Shop, About, and Contact pages. Features real student testimonials from international students (Vietnam, Japan, Korea, Taiwan, Philippines). No backend — frontend-only.
+- **Pages**: Home (/), Courses (/courses), Shop (/shop), About (/about), Contact (/contact)
+
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
