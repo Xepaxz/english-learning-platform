@@ -1,17 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import teacherPhoto from "@assets/1_1776518924551.jpg";
+import note1 from "@assets/1_1776518094051.jpg";
+import note2 from "@assets/2_1776518094051.jpg";
+import note3 from "@assets/3_1776518094051.jpg";
+import note4 from "@assets/4_1776518094051.jpg";
+import note5 from "@assets/5_1776518094051.jpg";
+import note7 from "@assets/7_1776518094051.jpg";
+import note8 from "@assets/8_1776518094051.jpg";
+import note9 from "@assets/9_1776518094051.jpg";
+import note10 from "@assets/10_1776518094051.jpg";
+import note11 from "@assets/11_1776518094051.jpg";
+import note12 from "@assets/12_1776518094051.jpg";
+import note13 from "@assets/13_1776518094051.jpg";
+import note14 from "@assets/14_1776518094051.jpg";
 
-const testimonials = [
-  { quote: "From the very first class, I felt that you are a truly professional teacher. Although my English foundation isn't very strong, you are always patient and guide me in ways I can understand.", author: "Yi-Ting" },
-  { quote: "I feel very lucky to be your student. Every day I met you made me happy. Your kindness made me enjoy life here even more.", author: "Claire" },
-  { quote: "Over the past four months studying with you, I have felt genuinely happy and thankful for everything you have shared with me.", author: "David" },
-  { quote: "You are so kind, gentle and patient with me. Learning with you has made me truly happy.", author: "Daisy (Vietnam)" },
-  { quote: "I feel very fortunate that fate allowed me to meet you. Thank you for your patience and guidance.", author: "Mandy (Taiwan)" },
-  { quote: "Being your student has been a great honor to me. You have been more of a mentor than a teacher.", author: "Yoonhee Kim" },
-  { quote: "Thank you for being such a kind and patient teacher. I have learned so much from your classes.", author: "Student" },
-  { quote: "I've learned so much from you — not only about English, but also about confidence and communication.", author: "Nghi" }
-];
+const studentNotes = [note1, note2, note3, note4, note5, note7, note8, note9, note10, note11, note12, note13, note14];
 
 const englishTerms = [
   "Conversational English",
@@ -104,25 +108,28 @@ export function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Student Notes Gallery Section */}
       <section className="py-24 bg-accent/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl font-bold font-serif mb-6">Heartfelt Words from Students</h2>
             <p className="text-lg text-muted-foreground">
-              These handwritten letters are the emotional heart of this platform. It's not just about grammar; it's about changing lives.
+              Real handwritten letters — because the most meaningful feedback doesn't come from star ratings, it comes from the heart.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-card p-8 rounded-3xl shadow-sm border border-border/50 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
-                <p className="text-foreground/80 leading-relaxed mb-6 font-serif italic text-lg">
-                  "{t.quote}"
-                </p>
-                <div className="font-semibold text-primary">
-                  — {t.author}
-                </div>
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+            {studentNotes.map((src, i) => (
+              <div
+                key={i}
+                className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-border/30"
+              >
+                <img
+                  src={src}
+                  alt={`Handwritten note from a student #${i + 1}`}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
