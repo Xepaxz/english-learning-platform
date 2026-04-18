@@ -1,6 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
+import photo1 from "@assets/1_1776518771398.jpg";
+import photo2 from "@assets/2_1776518771398.jpg";
+import photo3 from "@assets/3_1776518771398.jpg";
+import photo4 from "@assets/4_1776518771398.jpg";
+import photo5 from "@assets/5_1776518771398.jpg";
+import photo6 from "@assets/6_1776518771398.jpg";
+import photo7 from "@assets/7_1776518771398.jpg";
+import photo8 from "@assets/8_1776518771398.jpg";
+import photo9 from "@assets/9_1776518771398.jpg";
+import photo10 from "@assets/10_1776518771398.jpg";
+
+const galleryPhotos = [
+  { src: photo1, alt: "Teacher Polen with a student" },
+  { src: photo2, alt: "Teacher Polen at graduation ceremony" },
+  { src: photo3, alt: "Teacher Polen with a graduate student" },
+  { src: photo4, alt: "Teacher Polen teaching in class" },
+  { src: photo5, alt: "Teacher Polen with a student outdoors" },
+  { src: photo6, alt: "Teacher Polen with students selfie" },
+  { src: photo7, alt: "Teacher Polen with a student in class" },
+  { src: photo8, alt: "Teacher Polen selfie with a student" },
+  { src: photo9, alt: "Teacher Polen with a student studying" },
+  { src: photo10, alt: "Teacher Polen with students at cafe" },
+];
+
 export function About() {
   return (
     <div className="py-24 bg-white min-h-screen">
@@ -46,7 +70,34 @@ export function About() {
           </div>
         </div>
 
+        {/* Student Photo Gallery */}
         <div className="mt-32 max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-4">
+              Moments with My Students
+            </h2>
+            <p className="text-lg text-foreground/60 max-w-xl mx-auto">
+              Real connections, real memories. These are the people who make teaching the greatest gift.
+            </p>
+          </div>
+
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            {galleryPhotos.map((photo, index) => (
+              <div
+                key={index}
+                className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-24 max-w-6xl mx-auto">
            <div className="relative rounded-[3rem] overflow-hidden">
              <img 
                src="/students-group.png" 
