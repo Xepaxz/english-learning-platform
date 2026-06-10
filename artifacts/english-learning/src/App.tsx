@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { PageTransition } from "@/components/layout/PageTransition";
 import { Home } from "@/pages/Home";
 import { Courses } from "@/pages/Courses";
 import { Shop } from "@/pages/Shop";
@@ -21,14 +22,16 @@ export default function App() {
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
             <Navbar />
             <main className="flex-1">
-              <Switch>
-                <Route path="/" component={Home} />
-                <Route path="/courses" component={Courses} />
-                <Route path="/shop" component={Shop} />
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
-                <Route component={NotFound} />
-              </Switch>
+              <PageTransition>
+                <Switch>
+                  <Route path="/" component={Home} />
+                  <Route path="/courses" component={Courses} />
+                  <Route path="/shop" component={Shop} />
+                  <Route path="/about" component={About} />
+                  <Route path="/contact" component={Contact} />
+                  <Route component={NotFound} />
+                </Switch>
+              </PageTransition>
             </main>
             <Footer />
           </WouterRouter>

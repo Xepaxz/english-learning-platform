@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin } from "lucide-react";
+import { useInView } from "@/hooks/use-in-view";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -16,17 +17,16 @@ const formSchema = z.object({
 
 export function Contact() {
   const { toast } = useToast();
-  
+  const { ref: headerRef, inView: headerIn } = useInView();
+  const { ref: infoRef, inView: infoIn } = useInView();
+  const { ref: formRef, inView: formIn } = useInView();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", message: "" },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(_values: z.infer<typeof formSchema>) {
     toast({
       title: "Message sent!",
       description: "Thank you for reaching out. I'll get back to you soon.",
@@ -38,7 +38,10 @@ export function Contact() {
     <div className="py-24 bg-white min-h-screen">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+          <div
+            ref={headerRef as React.RefObject<HTMLDivElement>}
+            className={`text-center mb-16 transition-all duration-700 ease-out ${headerIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
             <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">Let's Connect</h1>
             <p className="text-xl text-muted-foreground">
               Have questions about the courses? Send me a message and I'll be happy to help.
@@ -46,10 +49,13 @@ export function Contact() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-1 space-y-8">
+            <div
+              ref={infoRef as React.RefObject<HTMLDivElement>}
+              className={`lg:col-span-1 space-y-8 transition-all duration-700 ease-out ${infoIn ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+            >
               <div className="p-8 bg-accent/20 rounded-3xl border border-border/50">
                 <h3 className="font-serif text-2xl font-bold mb-6">Contact Info</h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <Mail className="w-6 h-6 text-primary mt-1" />
@@ -58,7 +64,7 @@ export function Contact() {
                       <p className="text-muted-foreground">hello@teacherpolen.com</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <MapPin className="w-6 h-6 text-primary mt-1" />
                     <div>
@@ -67,7 +73,7 @@ export function Contact() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8 pt-8 border-t border-border">
                   <p className="text-sm text-muted-foreground italic">
                     "I usually reply within 24 hours. Looking forward to hearing from you!"
@@ -76,7 +82,10 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="lg:col-span-2">
+            <div
+              ref={formRef as React.RefObject<HTMLDivElement>}
+              className={`lg:col-span-2 transition-all duration-700 delay-150 ease-out ${formIn ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+            >
               <div className="p-8 rounded-3xl border border-border/50 bg-white shadow-sm">
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -115,10 +124,10 @@ export function Contact() {
                         <FormItem>
                           <FormLabel>Message</FormLabel>
                           <FormControl>
-                            <Textarea 
-                              placeholder="How can I help you?" 
-                              className="min-h-[150px] rounded-xl bg-accent/10 border-border/50 focus-visible:ring-primary resize-none" 
-                              {...field} 
+                            <Textarea
+                              placeholder="How can I help you?"
+                              className="min-h-[150px] rounded-xl bg-accent/10 border-border/50 focus-visible:ring-primary resize-none"
+                              {...field}
                             />
                           </FormControl>
                           <FormMessage />

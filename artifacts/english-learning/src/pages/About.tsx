@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-
+import { useInView } from "@/hooks/use-in-view";
 import teacherPhoto from "@assets/1_1776518924551.jpg";
 import photo1 from "@assets/1_1776518771398.jpg";
 import photo2 from "@assets/2_1776518771398.jpg";
@@ -27,11 +27,19 @@ const galleryPhotos = [
 ];
 
 export function About() {
+  const { ref: photoRef, inView: photoIn } = useInView();
+  const { ref: textRef, inView: textIn } = useInView();
+  const { ref: galleryHeaderRef, inView: galleryHeaderIn } = useInView();
+  const { ref: galleryRef, inView: galleryIn } = useInView();
+
   return (
     <div className="py-24 bg-background min-h-screen">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-          <div className="relative">
+          <div
+            ref={photoRef as React.RefObject<HTMLDivElement>}
+            className={`relative transition-all duration-700 ease-out ${photoIn ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+          >
             <div className="absolute inset-0 bg-secondary rounded-[2.5rem] transform -translate-x-4 -translate-y-4 -z-10"></div>
             <img
               src={teacherPhoto}
@@ -40,7 +48,10 @@ export function About() {
             />
           </div>
 
-          <div>
+          <div
+            ref={textRef as React.RefObject<HTMLDivElement>}
+            className={`transition-all duration-700 delay-150 ease-out ${textIn ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
+          >
             <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6 text-foreground">
               Hello, I'm Teacher Polen.
             </h1>
@@ -49,11 +60,9 @@ export function About() {
               <p>
                 My journey as an English teacher began with a simple belief: learning a new language shouldn't feel like a chore. It should feel like discovering a new part of yourself.
               </p>
-
               <p>
                 Over the years, I've had the absolute joy of working with international students from Vietnam, Japan, Korea, Taiwan, and the Philippines. Every student brings a unique story, a distinct culture, and their own set of dreams to the classroom.
               </p>
-
               <p>
                 To me, you are not just a student, and this is not just a classroom. This is a safe space where you can make mistakes without fear, where your confidence is nurtured, and where your voice matters. My teaching philosophy is built on patience, warmth, and genuine human connection.
               </p>
@@ -73,7 +82,10 @@ export function About() {
 
         {/* Student Photo Gallery */}
         <div className="mt-32 max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div
+            ref={galleryHeaderRef as React.RefObject<HTMLDivElement>}
+            className={`text-center mb-14 transition-all duration-700 ease-out ${galleryHeaderIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
             <h2 className="text-3xl md:text-4xl font-bold font-serif text-foreground mb-4">
               Moments with My Students
             </h2>
@@ -82,11 +94,14 @@ export function About() {
             </p>
           </div>
 
-          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div
+            ref={galleryRef as React.RefObject<HTMLDivElement>}
+            className={`columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 transition-all duration-700 ease-out ${galleryIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
             {galleryPhotos.map((photo, index) => (
               <div
                 key={index}
-                className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group"
+                className="break-inside-avoid rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1"
               >
                 <img
                   src={photo.src}
