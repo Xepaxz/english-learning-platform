@@ -83,17 +83,12 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
       >
         ×
       </button>
-      <div
-        className="animate-scale-in flex items-center justify-center"
+      <img
+        src={src}
+        alt={alt}
         onClick={(e) => e.stopPropagation()}
-      >
-        <img
-          src={src}
-          alt={alt}
-          style={{ maxHeight: "90vh", maxWidth: "90vw", width: "auto", height: "auto" }}
-          className="rounded-2xl shadow-2xl object-contain block"
-        />
-      </div>
+        className="max-h-[90vh] max-w-[90vw] w-auto h-auto rounded-2xl shadow-2xl object-contain block animate-scale-in"
+      />
     </div>
   );
 }
