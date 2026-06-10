@@ -73,7 +73,7 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
 
   return (
     <div
-      className="fixed inset-0 z-50 p-4 md:p-8 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-50 p-4 sm:p-12 bg-black/90 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
     >
       <button
@@ -87,8 +87,7 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
         src={src}
         alt={alt}
         onClick={(e) => e.stopPropagation()}
-        style={{ maxWidth: '100%', maxHeight: '100%' }}
-        className="object-contain rounded-xl shadow-2xl animate-scale-in"
+        className="w-full h-full object-contain block animate-scale-in drop-shadow-2xl"
       />
     </div>
   );
