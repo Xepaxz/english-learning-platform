@@ -42,7 +42,21 @@ const countryFlags = [
   { flag: "🇰🇷", name: "Korea" },
   { flag: "🇹🇼", name: "Taiwan" },
   { flag: "🇵🇭", name: "Philippines" },
-  { flag: "🇺🇸", name: "English" },
+  { flag: "🇺🇸", name: "USA" },
+  { flag: "🇹🇭", name: "Thailand" },
+  { flag: "🇮🇩", name: "Indonesia" },
+  { flag: "🇲🇾", name: "Malaysia" },
+  { flag: "🇸🇬", name: "Singapore" },
+  { flag: "🇨🇳", name: "China" },
+  { flag: "🇭🇰", name: "Hong Kong" },
+  { flag: "🇮🇳", name: "India" },
+  { flag: "🇧🇷", name: "Brazil" },
+  { flag: "🇲🇽", name: "Mexico" },
+  { flag: "🇫🇷", name: "France" },
+  { flag: "🇩🇪", name: "Germany" },
+  { flag: "🇸🇦", name: "Saudi Arabia" },
+  { flag: "🇦🇪", name: "UAE" },
+  { flag: "🇦🇺", name: "Australia" },
 ];
 
 function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
