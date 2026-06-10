@@ -35,47 +35,47 @@ export function Contact() {
   }
 
   return (
-    <div className="py-24 bg-white min-h-screen">
+    <div className="py-14 md:py-24 bg-white min-h-screen overflow-x-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           <div
             ref={headerRef as React.RefObject<HTMLDivElement>}
-            className={`text-center mb-16 transition-all duration-700 ease-out ${headerIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            className={`text-center mb-10 md:mb-16 transition-all duration-700 ease-out ${headerIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">Let's Connect</h1>
-            <p className="text-xl text-muted-foreground">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-4 md:mb-6">Let's Connect</h1>
+            <p className="text-base md:text-xl text-muted-foreground">
               Have questions about the courses? Send me a message and I'll be happy to help.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-12">
             <div
               ref={infoRef as React.RefObject<HTMLDivElement>}
-              className={`lg:col-span-1 space-y-8 transition-all duration-700 ease-out ${infoIn ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+              className={`lg:col-span-1 transition-all duration-700 ease-out ${infoIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
-              <div className="p-8 bg-accent/20 rounded-3xl border border-border/50">
-                <h3 className="font-serif text-2xl font-bold mb-6">Contact Info</h3>
+              <div className="p-6 md:p-8 bg-accent/20 rounded-2xl md:rounded-3xl border border-border/50">
+                <h3 className="font-serif text-xl md:text-2xl font-bold mb-5 md:mb-6">Contact Info</h3>
 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-primary mt-1" />
+                <div className="space-y-5 md:space-y-6">
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <Mail className="w-5 h-5 md:w-6 md:h-6 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Email</p>
-                      <p className="text-muted-foreground">hello@teacherpolen.com</p>
+                      <p className="font-medium text-sm md:text-base">Email</p>
+                      <p className="text-muted-foreground text-sm md:text-base break-all">hello@teacherpolen.com</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-primary mt-1" />
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <MapPin className="w-5 h-5 md:w-6 md:h-6 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Location</p>
-                      <p className="text-muted-foreground">Available globally for online classes</p>
+                      <p className="font-medium text-sm md:text-base">Location</p>
+                      <p className="text-muted-foreground text-sm md:text-base">Available globally for online classes</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-border">
-                  <p className="text-sm text-muted-foreground italic">
+                <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-border">
+                  <p className="text-xs md:text-sm text-muted-foreground italic">
                     "I usually reply within 24 hours. Looking forward to hearing from you!"
                   </p>
                 </div>
@@ -84,12 +84,12 @@ export function Contact() {
 
             <div
               ref={formRef as React.RefObject<HTMLDivElement>}
-              className={`lg:col-span-2 transition-all duration-700 delay-150 ease-out ${formIn ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+              className={`lg:col-span-2 transition-all duration-700 ease-out delay-150 ${formIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
-              <div className="p-8 rounded-3xl border border-border/50 bg-white shadow-sm">
+              <div className="p-6 md:p-8 rounded-2xl md:rounded-3xl border border-border/50 bg-white shadow-sm">
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 md:space-y-6">
+                    <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
                       <FormField
                         control={form.control}
                         name="name"
@@ -126,7 +126,7 @@ export function Contact() {
                           <FormControl>
                             <Textarea
                               placeholder="How can I help you?"
-                              className="min-h-[150px] rounded-xl bg-accent/10 border-border/50 focus-visible:ring-primary resize-none"
+                              className="min-h-[130px] md:min-h-[150px] rounded-xl bg-accent/10 border-border/50 focus-visible:ring-primary resize-none"
                               {...field}
                             />
                           </FormControl>
@@ -134,7 +134,7 @@ export function Contact() {
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" size="lg" className="w-full md:w-auto rounded-full px-8">
+                    <Button type="submit" size="lg" className="w-full sm:w-auto rounded-full px-8">
                       Send Message
                     </Button>
                   </form>
