@@ -64,17 +64,22 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
     >
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 text-white/80 hover:text-white text-4xl font-light leading-none z-10"
+        className="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white text-2xl font-light leading-none z-10 transition-colors"
         aria-label="Close"
       >
         ×
       </button>
-      <img
-        src={src}
-        alt={alt}
-        className="max-h-[88vh] max-w-[92vw] rounded-2xl shadow-2xl object-contain animate-scale-in"
+      <div
+        className="animate-scale-in flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
-      />
+      >
+        <img
+          src={src}
+          alt={alt}
+          style={{ maxHeight: "90vh", maxWidth: "90vw", width: "auto", height: "auto" }}
+          className="rounded-2xl shadow-2xl object-contain block"
+        />
+      </div>
     </div>
   );
 }
