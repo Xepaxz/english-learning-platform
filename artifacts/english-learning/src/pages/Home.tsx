@@ -73,12 +73,12 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-fade-in p-4"
+      className="fixed inset-0 z-50 p-4 md:p-8 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
     >
       <button
         onClick={onClose}
-        className="absolute top-3 right-3 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white text-2xl font-light leading-none z-10 transition-colors"
+        className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-2xl font-light leading-none z-10 transition-colors"
         aria-label="Close"
       >
         ×
@@ -87,7 +87,8 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
         src={src}
         alt={alt}
         onClick={(e) => e.stopPropagation()}
-        className="max-h-[90vh] max-w-[90vw] w-auto h-auto rounded-2xl shadow-2xl object-contain block animate-scale-in"
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        className="object-contain rounded-xl shadow-2xl animate-scale-in"
       />
     </div>
   );
