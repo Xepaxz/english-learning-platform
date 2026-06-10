@@ -59,6 +59,8 @@ const countryFlags = [
   { flag: "🇦🇺", name: "Australia" },
 ];
 
+import { createPortal } from "react-dom";
+
 function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -71,9 +73,11 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 p-4 sm:p-12 bg-black/90 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-[100] p-4 sm:p-12 bg-black/85 flex items-center justify-center animate-fade-in"
       onClick={onClose}
     >
       <button
@@ -87,9 +91,11 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
         src={src}
         alt={alt}
         onClick={(e) => e.stopPropagation()}
-        className="w-full h-full object-contain block animate-scale-in drop-shadow-2xl"
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
+        className="object-contain animate-scale-in drop-shadow-2xl"
       />
-    </div>
+    </div>,
+    document.body
   );
 }
 
