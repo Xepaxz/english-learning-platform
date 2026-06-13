@@ -117,7 +117,7 @@ export function Home() {
   const closeLightbox = useCallback(() => setLightbox(null), []);
 
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden">
+    <div className="flex flex-col min-h-screen">
       {lightbox && <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={closeLightbox} />}
 
       {/* Hero Section */}
