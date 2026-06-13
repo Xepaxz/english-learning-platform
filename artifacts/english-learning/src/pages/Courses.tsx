@@ -107,7 +107,7 @@ export function Courses() {
               className={`rounded-2xl md:rounded-3xl p-6 md:p-8 border flex flex-col ${course.color} hover:-translate-y-1 hover:shadow-lg duration-300`}
             >
               <h3 className="text-2xl md:text-3xl font-serif font-bold mb-3">{course.category}</h3>
-              <p className="text-foreground/70 mb-6 flex-grow leading-relaxed text-sm md:text-base">{course.description}</p>
+              <p className="text-foreground/70 mb-6 leading-relaxed text-sm md:text-base">{course.description}</p>
               <div className="space-y-4">
                 {course.items.map((item, i) => (
                   <div key={i} className="bg-white/60 p-4 rounded-xl border border-white/50 shadow-sm">
