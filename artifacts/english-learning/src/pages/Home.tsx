@@ -169,66 +169,66 @@ export function Home() {
       </section>
 
       {/* Rotating Test Providers Logo Strip */}
-      <section className="py-8 md:py-12 bg-white overflow-hidden border-b border-border/30">
+      <section className="py-10 md:py-14 bg-white overflow-hidden border-b border-border/30">
         <div className="container mx-auto px-4 text-center mb-8">
           <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground/60 uppercase">Preparing Students for Global Standards</p>
         </div>
-        <div className="relative flex overflow-x-hidden group pause-on-hover">
-          <div className="flex animate-marquee whitespace-nowrap items-center">
-            {[1, 2].map((setIndex) => (
-              <div key={setIndex} className="flex items-center">
+        <div className="relative overflow-hidden">
+          <div className="flex animate-marquee-logos items-center" style={{ width: 'max-content' }}>
+            {[1, 2, 3, 4].map((setIndex) => (
+              <div key={setIndex} className="flex items-center flex-shrink-0">
 
-                {/* IELTS Logo */}
-                <div className="inline-flex items-center mx-10 md:mx-16 opacity-30 hover:opacity-70 transition-opacity duration-300 grayscale">
-                  <svg width="110" height="40" viewBox="0 0 110 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="10" height="40" rx="2" fill="#CC0000"/>
-                    <text x="18" y="28" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="26" fill="#1a1a1a">IELTS</text>
+                {/* IELTS */}
+                <div className="flex-shrink-0 mx-10 md:mx-16 opacity-35 hover:opacity-80 transition-opacity duration-300">
+                  <svg width="140" height="50" viewBox="0 0 140 50" fill="none">
+                    <rect width="12" height="50" rx="2" fill="#CC0000"/>
+                    <text x="22" y="36" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="32" fill="#1a1a1a">IELTS</text>
                   </svg>
                 </div>
 
-                {/* PTE (Pearson) Logo */}
-                <div className="inline-flex items-center mx-10 md:mx-16 opacity-30 hover:opacity-70 transition-opacity duration-300 grayscale">
-                  <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="20" cy="20" r="18" fill="#005F9E"/>
-                    <text x="20" y="25" textAnchor="middle" fontFamily="Arial" fontWeight="bold" fontSize="13" fill="white">PTE</text>
-                    <text x="45" y="16" fontFamily="Arial" fontWeight="700" fontSize="13" fill="#005F9E">Pearson</text>
-                    <text x="45" y="30" fontFamily="Arial" fontWeight="400" fontSize="10" fill="#005F9E" letterSpacing="1">TEST OF ENGLISH</text>
+                {/* PTE */}
+                <div className="flex-shrink-0 mx-10 md:mx-16 opacity-35 hover:opacity-80 transition-opacity duration-300">
+                  <svg width="160" height="50" viewBox="0 0 160 50" fill="none">
+                    <circle cx="24" cy="25" r="22" fill="#005F9E"/>
+                    <text x="24" y="31" textAnchor="middle" fontFamily="Arial" fontWeight="bold" fontSize="16" fill="white">PTE</text>
+                    <text x="54" y="20" fontFamily="Arial" fontWeight="700" fontSize="16" fill="#005F9E">Pearson</text>
+                    <text x="54" y="36" fontFamily="Arial" fontWeight="400" fontSize="11" fill="#005F9E" letterSpacing="1">TEST OF ENGLISH</text>
                   </svg>
                 </div>
 
-                {/* OET Logo */}
-                <div className="inline-flex items-center mx-10 md:mx-16 opacity-30 hover:opacity-70 transition-opacity duration-300 grayscale">
-                  <svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="8" width="8" height="24" rx="1" fill="#E87722"/>
-                    <rect x="12" y="8" width="8" height="24" rx="1" fill="#E87722"/>
-                    <text x="26" y="28" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="26" fill="#1a1a1a">OET</text>
+                {/* OET */}
+                <div className="flex-shrink-0 mx-10 md:mx-16 opacity-35 hover:opacity-80 transition-opacity duration-300">
+                  <svg width="120" height="50" viewBox="0 0 120 50" fill="none">
+                    <rect x="0" y="8" width="10" height="34" rx="2" fill="#E87722"/>
+                    <rect x="14" y="8" width="10" height="34" rx="2" fill="#E87722"/>
+                    <text x="30" y="36" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="32" fill="#1a1a1a">OET</text>
                   </svg>
                 </div>
 
-                {/* TOEFL Logo */}
-                <div className="inline-flex items-center mx-10 md:mx-16 opacity-30 hover:opacity-70 transition-opacity duration-300 grayscale">
-                  <svg width="130" height="40" viewBox="0 0 130 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="16" fontFamily="Arial" fontWeight="700" fontSize="11" fill="#003087" letterSpacing="0.5">ETS</text>
-                    <rect x="0" y="20" width="130" height="2" fill="#003087"/>
-                    <text x="0" y="38" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="22" fill="#003087" letterSpacing="1">TOEFL</text>
+                {/* TOEFL */}
+                <div className="flex-shrink-0 mx-10 md:mx-16 opacity-35 hover:opacity-80 transition-opacity duration-300">
+                  <svg width="140" height="50" viewBox="0 0 140 50" fill="none">
+                    <text x="0" y="16" fontFamily="Arial" fontWeight="700" fontSize="13" fill="#003087" letterSpacing="0.5">ETS</text>
+                    <rect x="0" y="22" width="130" height="2.5" fill="#003087"/>
+                    <text x="0" y="46" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="26" fill="#003087" letterSpacing="1">TOEFL</text>
                   </svg>
                 </div>
 
-                {/* CELPIP Logo */}
-                <div className="inline-flex items-center mx-10 md:mx-16 opacity-30 hover:opacity-70 transition-opacity duration-300 grayscale">
-                  <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0" y="12" width="6" height="18" rx="1" fill="#D9261C"/>
-                    <rect x="0" y="10" width="18" height="6" rx="1" fill="#D9261C"/>
-                    <text x="24" y="30" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="20" fill="#1a1a1a" letterSpacing="0.5">CELPIP</text>
+                {/* CELPIP */}
+                <div className="flex-shrink-0 mx-10 md:mx-16 opacity-35 hover:opacity-80 transition-opacity duration-300">
+                  <svg width="160" height="50" viewBox="0 0 160 50" fill="none">
+                    <rect x="0" y="14" width="8" height="24" rx="1" fill="#D9261C"/>
+                    <rect x="0" y="12" width="22" height="8" rx="1" fill="#D9261C"/>
+                    <text x="28" y="36" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="26" fill="#1a1a1a" letterSpacing="0.5">CELPIP</text>
                   </svg>
                 </div>
 
-                {/* TOEIC Logo */}
-                <div className="inline-flex items-center mx-10 md:mx-16 opacity-30 hover:opacity-70 transition-opacity duration-300 grayscale">
-                  <svg width="130" height="40" viewBox="0 0 130 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="16" fontFamily="Arial" fontWeight="700" fontSize="11" fill="#003087" letterSpacing="0.5">ETS</text>
-                    <rect x="0" y="20" width="115" height="2" fill="#003087"/>
-                    <text x="0" y="38" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="22" fill="#003087" letterSpacing="1">TOEIC</text>
+                {/* TOEIC */}
+                <div className="flex-shrink-0 mx-10 md:mx-16 opacity-35 hover:opacity-80 transition-opacity duration-300">
+                  <svg width="140" height="50" viewBox="0 0 140 50" fill="none">
+                    <text x="0" y="16" fontFamily="Arial" fontWeight="700" fontSize="13" fill="#003087" letterSpacing="0.5">ETS</text>
+                    <rect x="0" y="22" width="120" height="2.5" fill="#003087"/>
+                    <text x="0" y="46" fontFamily="Arial Black, Arial" fontWeight="900" fontSize="26" fill="#003087" letterSpacing="1">TOEIC</text>
                   </svg>
                 </div>
 
@@ -237,6 +237,7 @@ export function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Scrolling English Terms Strip */}
       <section className="py-4 md:py-6 bg-secondary/60 overflow-hidden border-y border-border">

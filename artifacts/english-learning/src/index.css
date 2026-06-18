@@ -157,6 +157,14 @@
   .pause-on-hover:hover .animate-marquee {
     animation-play-state: paused;
   }
+
+  @keyframes marquee-logos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-25%); }
+  }
+  .animate-marquee-logos {
+    animation: marquee-logos 25s linear infinite;
+  }
 }
 
 @layer utilities {
