@@ -168,6 +168,27 @@ export function Home() {
         </div>
       </section>
 
+      {/* Rotating Test Providers Logo Strip */}
+      <section className="py-8 md:py-10 bg-muted/30 overflow-hidden border-b border-border/50">
+        <div className="container mx-auto px-4 text-center mb-6">
+          <p className="text-sm font-semibold tracking-wider text-muted-foreground uppercase">Preparing students for global standards</p>
+        </div>
+        <div className="relative flex overflow-x-hidden group pause-on-hover">
+          <div className="flex animate-marquee whitespace-nowrap items-center">
+            {[1, 2, 3, 4].map((setIndex) => (
+              <div key={setIndex} className="flex items-center">
+                <div className="inline-flex items-center justify-center mx-8 md:mx-14 text-foreground/40 hover:text-foreground/80 transition-colors font-sans font-bold text-3xl md:text-4xl tracking-tighter">IELTS</div>
+                <div className="inline-flex items-center justify-center mx-8 md:mx-14 text-foreground/40 hover:text-foreground/80 transition-colors font-serif font-bold text-2xl md:text-3xl tracking-widest">PTE</div>
+                <div className="inline-flex items-center justify-center mx-8 md:mx-14 text-foreground/40 hover:text-foreground/80 transition-colors font-sans font-black text-3xl md:text-4xl tracking-tight">OET</div>
+                <div className="inline-flex items-center justify-center mx-8 md:mx-14 text-foreground/40 hover:text-foreground/80 transition-colors font-serif font-bold text-2xl md:text-3xl tracking-[0.2em]">TOEFL</div>
+                <div className="inline-flex items-center justify-center mx-8 md:mx-14 text-foreground/40 hover:text-foreground/80 transition-colors font-sans font-extrabold text-2xl md:text-3xl tracking-wider">CELPIP</div>
+                <div className="inline-flex items-center justify-center mx-8 md:mx-14 text-foreground/40 hover:text-foreground/80 transition-colors font-sans font-bold text-3xl md:text-4xl tracking-tight italic">TOEIC</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Scrolling English Terms Strip */}
       <section className="py-4 md:py-6 bg-secondary/60 overflow-hidden border-y border-border">
         <div className="relative">

@@ -146,6 +146,17 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .pause-on-hover:hover .animate-marquee {
+    animation-play-state: paused;
+  }
 }
 
 @layer utilities {
