@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin } from "lucide-react";
 import { useInView } from "@/hooks/use-in-view";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -16,6 +17,7 @@ const formSchema = z.object({
 });
 
 export function Contact() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const { ref: headerRef, inView: headerIn } = useInView();
   const { ref: infoRef, inView: infoIn } = useInView();
@@ -42,9 +44,9 @@ export function Contact() {
             ref={headerRef as React.RefObject<HTMLDivElement>}
             className={`text-center mb-10 md:mb-16 transition-all duration-700 ease-out ${headerIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-4 md:mb-6">Let's Connect</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-4 md:mb-6">{t("contact.title")}</h1>
             <p className="text-base md:text-xl text-muted-foreground">
-              Have questions about the courses? Send me a message and I'll be happy to help.
+              {t("contact.subtitle")}
             </p>
           </div>
 

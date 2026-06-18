@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useInView } from "@/hooks/use-in-view";
 import { useCurrency } from "@/hooks/useCurrency";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const mainCourses = [
   {
@@ -62,6 +63,7 @@ function AnimatedSection({ children, delay = 0, className = "" }: { children: Re
 }
 
 export function Courses() {
+  const { t } = useLanguage();
   const { ref: headerRef, inView: headerIn } = useInView();
   const { ref: ctaRef, inView: ctaIn } = useInView();
   const { formatPrice, loading } = useCurrency();
@@ -76,24 +78,25 @@ export function Courses() {
           className={`text-center max-w-4xl mx-auto mb-16 md:mb-24 transition-all duration-700 ease-out ${headerIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-accent text-accent-foreground text-xs md:text-sm font-semibold tracking-wide mb-4">
-            Curriculum
+            {t("courses.badge")}
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif mb-6 md:mb-8 text-foreground">Learning Programs</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif mb-6 md:mb-8 text-foreground">{t("courses.title")}</h1>
           
           <div className="p-6 md:p-8 bg-secondary/30 rounded-3xl inline-block text-left md:text-center shadow-sm">
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-4">
-              All main courses are designed to be a <strong>20-day program (60 min/lesson)</strong>.<br className="hidden md:block" />
-              Minimum lessons per week: <strong>2</strong>. Books and other educational materials are provided.
+              {t("courses.info")}
+              <br className="hidden md:block" />
+              {t("courses.info2")}
             </p>
             <p className="text-sm md:text-base text-muted-foreground">
-              *Academic courses will have a mock test before the end of the program to determine improvement.
+              {t("courses.info3")}
             </p>
           </div>
         </div>
 
         {/* Main Courses Section */}
         <div className="mb-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Main Courses</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">{t("courses.mainCourses")}</h2>
           <div className={`inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary/10 text-primary font-bold text-xl md:text-2xl transition-opacity duration-500 ${loading ? 'opacity-50' : 'opacity-100'}`}>
             {formatPrice(10000)}
           </div>
@@ -122,8 +125,8 @@ export function Courses() {
 
         {/* Add-ons Section */}
         <div className="mt-24 mb-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2">Add-on Lessons</h2>
-          <p className="text-muted-foreground mb-4">Optional electives • 30 minutes per session</p>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2">{t("courses.addons")}</h2>
+          <p className="text-muted-foreground mb-4">{t("courses.addonsSubtitle")}</p>
           <div className={`inline-flex items-center justify-center px-6 py-3 rounded-full bg-secondary/80 text-secondary-foreground font-bold text-xl md:text-2xl transition-opacity duration-500 ${loading ? 'opacity-50' : 'opacity-100'}`}>
             {formatPrice(5000)}
           </div>
@@ -150,7 +153,7 @@ export function Courses() {
         {/* Payment Information */}
         <div className="mt-24 max-w-3xl mx-auto">
           <AnimatedSection className="bg-accent/5 p-8 md:p-10 rounded-3xl border border-border shadow-sm">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-8 text-center">Payment Information</h3>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-8 text-center">{t("courses.payment.title")}</h3>
             
             <div className="space-y-6">
               <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center p-4 bg-white rounded-xl border border-border/50">
@@ -178,12 +181,12 @@ export function Courses() {
             </div>
 
             <div className="mt-8 p-4 bg-destructive/10 text-destructive-foreground rounded-xl text-center font-medium">
-              Note: Absence must be communicated at least 2 hours before class time.
+              {t("courses.payment.absence")}
             </div>
             
             <div className="mt-10 text-center">
               <Button size="lg" className="rounded-full px-10 h-14" asChild>
-                <Link href="/contact">Ready to Enroll? Contact Teacher Polen</Link>
+                <Link href="/contact">{t("courses.payment.cta")}</Link>
               </Button>
             </div>
           </AnimatedSection>

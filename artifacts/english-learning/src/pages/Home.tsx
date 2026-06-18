@@ -1,5 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Users, Target, Award, Globe, BadgeDollarSign, CalendarClock, BookOpen, Calendar, Video, Star } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Link } from "wouter";
 import { useInView } from "@/hooks/use-in-view";
 import teacherPhoto from "@assets/1_1776518924551.jpg";
@@ -112,6 +114,7 @@ function AnimatedSection({ children, className = "" }: { children: React.ReactNo
 }
 
 export function Home() {
+  const { t } = useLanguage();
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
   const openLightbox = useCallback((src: string, alt: string) => setLightbox({ src, alt }), []);
   const closeLightbox = useCallback(() => setLightbox(null), []);
@@ -125,20 +128,20 @@ export function Home() {
         <div className="container mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="max-w-2xl animate-slide-up">
             <span className="inline-block py-1 px-3 rounded-full bg-accent text-accent-foreground text-xs md:text-sm font-semibold tracking-wide mb-4 md:mb-6">
-              Welcome to your new classroom
+              {t("home.hero.badge")}
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 md:mb-6 text-balance text-foreground">
-              Learn English with a <span className="text-primary italic font-serif">Real Teacher</span> Experience.
+              {t("home.hero.title1")} <span className="text-primary italic font-serif">{t("home.hero.titleHighlight")}</span> {t("home.hero.title2")}
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 text-balance">
-              Helping international students build real confidence in English — through patience, warmth, and genuine human connection.
+              {t("home.hero.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Button size="lg" className="text-base md:text-lg rounded-full px-6 md:px-8 h-12 md:h-14" asChild>
-                <Link href="/courses">Start Learning</Link>
+                <Link href="/courses">{t("home.hero.cta1")}</Link>
               </Button>
               <Button size="lg" variant="outline" className="text-base md:text-lg rounded-full px-6 md:px-8 h-12 md:h-14" asChild>
-                <Link href="/shop">Browse Curriculum</Link>
+                <Link href="/shop">{t("home.hero.cta2")}</Link>
               </Button>
             </div>
           </div>
@@ -171,7 +174,7 @@ export function Home() {
       {/* Rotating Test Providers Logo Strip */}
       <section className="py-10 md:py-14 bg-white overflow-hidden border-b border-border/30">
         <div className="container mx-auto px-4 text-center mb-8">
-          <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground/60 uppercase">Preparing Students for Global Standards</p>
+          <p className="text-xs font-bold tracking-[0.25em] text-muted-foreground/60 uppercase">{t("home.logos.title")}</p>
         </div>
         <div className="relative overflow-hidden">
           <div className="flex animate-marquee-logos items-center" style={{ width: 'max-content' }}>
@@ -253,16 +256,103 @@ export function Home() {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <AnimatedSection className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-semibold tracking-wide mb-3 md:mb-4">
+              {t("home.why.badge")}
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4 md:mb-6">{t("home.why.title")}</h2>
+            <p className="text-base md:text-lg text-muted-foreground">{t("home.why.subtitle")}</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {[
+              { icon: Users, title: "home.why.card1.title", desc: "home.why.card1.desc" },
+              { icon: Target, title: "home.why.card2.title", desc: "home.why.card2.desc" },
+              { icon: Award, title: "home.why.card3.title", desc: "home.why.card3.desc" },
+              { icon: Globe, title: "home.why.card4.title", desc: "home.why.card4.desc" },
+              { icon: BadgeDollarSign, title: "home.why.card5.title", desc: "home.why.card5.desc" },
+              { icon: CalendarClock, title: "home.why.card6.title", desc: "home.why.card6.desc" },
+            ].map((feature, i) => (
+              <div key={i} className="p-6 md:p-8 rounded-2xl bg-secondary/30 border border-border/50 hover:bg-secondary/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                  <feature.icon size={24} />
+                </div>
+                <h3 className="text-xl font-bold font-serif mb-3">{t(feature.title)}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t(feature.desc)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Stats Section */}
+      <section className="py-12 md:py-16 bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">10+</div>
+              <div className="text-primary-foreground/80 font-medium tracking-wide">{t("home.stats.years")}</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">20+</div>
+              <div className="text-primary-foreground/80 font-medium tracking-wide">{t("home.stats.countries")}</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
+              <div className="text-primary-foreground/80 font-medium tracking-wide">{t("home.stats.students")}</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 flex items-center justify-center gap-2">4.9 <Star className="fill-current" size={28} /></div>
+              <div className="text-primary-foreground/80 font-medium tracking-wide">{t("home.stats.rating")}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <AnimatedSection className="py-16 md:py-24 bg-accent/10">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+            <span className="inline-block py-1 px-3 rounded-full bg-accent text-accent-foreground text-xs md:text-sm font-semibold tracking-wide mb-3 md:mb-4">
+              {t("home.how.badge")}
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4 md:mb-6">{t("home.how.title")}</h2>
+            <p className="text-base md:text-lg text-muted-foreground">{t("home.how.subtitle")}</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
+            <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-border/60 z-0"></div>
+            {[
+              { icon: BookOpen, title: "home.how.step1.title", desc: "home.how.step1.desc" },
+              { icon: Calendar, title: "home.how.step2.title", desc: "home.how.step2.desc" },
+              { icon: Video, title: "home.how.step3.title", desc: "home.how.step3.desc" },
+            ].map((step, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-background border-4 border-accent shadow-xl flex items-center justify-center text-primary mb-6 md:mb-8">
+                  <step.icon size={36} className="md:w-10 md:h-10" />
+                </div>
+                <div className="text-sm font-bold text-accent-foreground/60 tracking-widest uppercase mb-2">STEP 0{i + 1}</div>
+                <h3 className="text-xl md:text-2xl font-bold font-serif mb-3 md:mb-4">{t(step.title)}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t(step.desc)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
       {/* Moments with Students Section */}
       <AnimatedSection className="py-14 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-semibold tracking-wide mb-3 md:mb-4">
-              📸 Behind the Scenes
+              {t("home.moments.badge")}
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4 md:mb-6">Moments with My Students</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4 md:mb-6">{t("home.moments.title")}</h2>
             <p className="text-base md:text-lg text-muted-foreground">
-              Every lesson is a memory. Here are some of the joyful, meaningful moments shared in our classroom and beyond.
+              {t("home.moments.subtitle")}
             </p>
           </div>
 
@@ -293,9 +383,9 @@ export function Home() {
       <AnimatedSection className="py-14 md:py-24 bg-accent/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4 md:mb-6">Heartfelt Words from Students</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4 md:mb-6">{t("home.notes.title")}</h2>
             <p className="text-base md:text-lg text-muted-foreground">
-              Real handwritten letters — because the most meaningful feedback doesn't come from star ratings, it comes from the heart.
+              {t("home.notes.subtitle")}
             </p>
           </div>
 
@@ -325,12 +415,12 @@ export function Home() {
       {/* CTA Section */}
       <AnimatedSection className="py-20 md:py-32 relative overflow-hidden bg-primary/5">
         <div className="container relative mx-auto px-4 md:px-6 text-center max-w-3xl">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4 md:mb-6">Ready to start your journey?</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-4 md:mb-6">{t("home.cta.title")}</h2>
           <p className="text-base md:text-xl text-muted-foreground mb-8 md:mb-10">
-            Join our community of international students and discover the joy of learning English with confidence.
+            {t("home.cta.subtitle")}
           </p>
           <Button size="lg" className="text-base md:text-lg rounded-full px-8 md:px-10 h-13 md:h-16 w-full sm:w-auto" asChild>
-            <Link href="/contact">Get in Touch</Link>
+            <Link href="/contact">{t("home.cta.button")}</Link>
           </Button>
         </div>
       </AnimatedSection>
