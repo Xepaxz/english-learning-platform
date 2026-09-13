@@ -98,7 +98,7 @@ export function Courses() {
         <div className="mb-8 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">{t("courses.mainCourses")}</h2>
           <div className={`inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary/10 text-primary font-bold text-xl md:text-2xl transition-opacity duration-500 ${loading ? 'opacity-50' : 'opacity-100'}`}>
-            {formatPrice(10000)}
+            {formatPrice(169.99)}
           </div>
         </div>
 
@@ -128,7 +128,7 @@ export function Courses() {
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2">{t("courses.addons")}</h2>
           <p className="text-muted-foreground mb-4">{t("courses.addonsSubtitle")}</p>
           <div className={`inline-flex items-center justify-center px-6 py-3 rounded-full bg-secondary/80 text-secondary-foreground font-bold text-xl md:text-2xl transition-opacity duration-500 ${loading ? 'opacity-50' : 'opacity-100'}`}>
-            {formatPrice(5000)}
+            {formatPrice(84.99)}
           </div>
         </div>
 

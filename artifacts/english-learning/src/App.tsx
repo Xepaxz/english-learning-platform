@@ -11,7 +11,10 @@ import { Courses } from "@/pages/Courses";
 import { Shop } from "@/pages/Shop";
 import { About } from "@/pages/About";
 import { Contact } from "@/pages/Contact";
+import { Announcements } from "@/pages/Announcements";
+import { Admin } from "@/pages/Admin";
 import NotFound from "@/pages/not-found";
+import { ChatWidget } from "@/components/ChatWidget";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +34,8 @@ export default function App() {
                     <Route path="/shop" component={Shop} />
                     <Route path="/about" component={About} />
                     <Route path="/contact" component={Contact} />
+                    <Route path="/announcements" component={Announcements} />
+                    <Route path="/admin" component={Admin} />
                     <Route component={NotFound} />
                   </Switch>
                 </PageTransition>
@@ -38,6 +43,7 @@ export default function App() {
               <Footer />
             </WouterRouter>
           </div>
+          <ChatWidget />
           <Toaster />
         </LanguageProvider>
       </TooltipProvider>
